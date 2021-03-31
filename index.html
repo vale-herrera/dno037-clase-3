@@ -50,7 +50,7 @@
                 descarga = createButton("Descargar").parent(main);
                 descarga.mousePressed(descargar);
                 instructivo();
-                galeria = createA("gallery.html", "galería").parent("Galería");
+                galeria = createA("gallery.html", "Galería").parent("galería");
                 
             }
 
@@ -62,14 +62,11 @@
                 }
             }
 
-            function descargar() {
-                saveCanvas("Arte", "PNG");
-            }
+            function descargar() {saveCanvas("Arte", "png");}
             
-            function instructivo(){
-                alert("¡Hola! dibuja algo que te haga feliz (-‿◦) ")
-            }
+            function instructivo(){ alert("¡Hola! dibuja algo que te haga feliz (-‿◦) ") }
 
         </script>
     </body>
 </html>
+
