@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Diseño y nuevos medios, segunda versión remota" />
+        <link href="style.css" rel="stylesheet" />
+        <title>&#129528; DNO037 | Evalución Nº1</title>
+    </head>
+    <body>
+        <header>
+            <div>
+                <h1>&#129528; <span>DibujApp</span></h1>
+            </div>
+            <div></div>
+            <div></div>
+        </header>
+        <main></main>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+        <script>
+            var main = document.querySelector("main");
+            var footer = document.querySelector("footer");
+            var menuColor = document.getElementsByTagName("div")[1];
+            var menuGrosor = document.getElementsByTagName("div")[2];
+            var menuDescargar = document.getElementsByTagName("div")[3];
+            var colorido, grosor, descarga;
+
+            function setup() {
+                createCanvas(windowWidth, windowHeight).parent(main);
+                background(238, 255, 235);
+                colorido = createColorPicker("#450A92").parent(menuColor);
+                createSpan("Grosor ").parent(menuGrosor);
+                grosor = createSelect().parent(menuGrosor);
+                grosor.option("1 (más delgado)", 1);
+                grosor.option("2", 2);
+                grosor.option("3", 3);
+                grosor.option("4", 4);
+                grosor.option("5", 5);
+                grosor.option("6", 6);
+                grosor.option("7", 7);
+                grosor.option("8", 8);
+                grosor.option("9 (más grueso)", 9);
+                grosor.selected(5);
+                descarga = createButton("Descargar").parent(main);
+                descarga.mousePressed(descargar);
+                instructivo();
+            }
+
+            function draw() {
+                stroke(colorido.color());
+                strokeWeight(grosor.value());
+                if (mouseIsPressed) {
+                    line(pmouseX, pmouseY, mouseX, mouseY);
+                }
+            }
+
+            function descargar() {
+                saveCanvas("Arte!", "PNG");
+            }
+            
+            function instructivo(){
+                alert("¡Hola! dibuja algo que te haga feliz (-‿◦) ")
+            }
+
+        </script>
+    </body>
+</html>
